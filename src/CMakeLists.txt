@@ -4,5 +4,4 @@
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/state_machine)
 
 # Add the Behavior Tree library
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/behavior_tree)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/behavior_tree)

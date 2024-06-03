@@ -1,4 +1,4 @@
-#include <memory>  // For std::unique_ptr
+#include <memory>
 
 #include "state_machine.h"
 #include "states/standing_state.h"

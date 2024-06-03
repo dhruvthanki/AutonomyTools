@@ -5,10 +5,10 @@ project(InterviewPrep VERSION 0.1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Add the src directory to build the libraries
 add_subdirectory(src)
 
-add_executable(InterviewPrep main.cpp)
+add_executable(smMain main.cpp)
+target_link_libraries(smMain PRIVATE state_machine_lib)
 
-# Link the FSM and Behavior Tree libraries to the executable
-target_link_libraries(InterviewPrep PRIVATE state_machine_lib behavior_tree)
+add_executable(btMain main2.cpp)
+target_link_libraries(btMain PRIVATE behavior_tree_lib)
