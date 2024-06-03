@@ -1,21 +1,21 @@
-#include <iostream>
+#include <memory>  // For std::unique_ptr
 
-#include "state_machine/state_machine.h"
-#include "src/state_machine/idle_state.h"
-#include "src/state_machine/moving_state.h"
-#include "behavior_tree/behavior_tree.h"
+#include "state_machine.h"
+#include "states/standing_state.h"
+#include "states/walking_state.h"
+#include "states/manipulating_state.h"
 
 int main() {
-    StateMachine state_machine;
+  state_machine::StateMachine state_machine;
 
-    IdleState idle_state;
-    MovingState moving_state;
+  state_machine.ChangeState(std::make_unique<state_machine::StandingState>());
+  state_machine.Update();
 
-    state_machine.changeState(&idle_state);
-    state_machine.update();
+  state_machine.ChangeState(std::make_unique<state_machine::WalkingState>());
+  state_machine.Update();
 
-    state_machine.changeState(&moving_state);
-    state_machine.update();
+  state_machine.ChangeState(std::make_unique<state_machine::ManipulatingState>());
+  state_machine.Update();
 
-    return 0;
+  return 0;
 }

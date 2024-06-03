@@ -1,18 +1,21 @@
-#ifndef STATE_MACHINE_H
-#define STATE_MACHINE_H
+#ifndef STATE_MACHINE_STATE_MACHINE_H_
+#define STATE_MACHINE_STATE_MACHINE_H_
 
+#include <memory>
 #include "state.h"
 
+namespace state_machine {
+
 class StateMachine {
-public:
-    StateMachine();
+ public:
+  StateMachine();
+  void ChangeState(std::unique_ptr<State> new_state);
+  void Update();
 
-    void changeState(State* new_state);
-
-    void update();
-
-private:
-    State* current_state_;
+ private:
+  std::unique_ptr<State> current_state_;
 };
 
-#endif // STATE_MACHINE_H
+}  // namespace state_machine
+
+#endif  // STATE_MACHINE_STATE_MACHINE_H_
